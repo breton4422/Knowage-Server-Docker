@@ -90,7 +90,7 @@ ENV MYSQL_SCRIPT_DIRECTORY ${KNOWAGE_DIRECTORY}/mysql
 WORKDIR ${KNOWAGE_DIRECTORY}
 
 #install required packages and clean up to save space
-# S. Harnois - See tip @ https://superuser.com/questions/1423486/issue-with-fetching-http-deb-debian-org-debian-dists-jessie-updates-inrelease & https://unix.stackexchange.com/questions/508724/failed-to-fetch-jessie-backports-repository
+#note: Refer to tip @ https://superuser.com/questions/1423486/issue-with-fetching-http-deb-debian-org-debian-dists-jessie-updates-inrelease & https://unix.stackexchange.com/questions/508724/failed-to-fetch-jessie-backports-repository
 RUN rm /etc/apt/sources.list.d/jessie-backports.list
 RUN printf "deb http://cdn-fastly.deb.debian.org/debian/ jessie main\ndeb-src http://cdn-fastly.deb.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main\ndeb http://archive.debian.org/debian jessie-backports main\ndeb-src http://archive.debian.org/debian jessie-backports main" > /etc/apt/sources.list
 RUN printf "Acquire::Check-Valid-Until \"false\";\n" >> /etc/apt/apt.conf
