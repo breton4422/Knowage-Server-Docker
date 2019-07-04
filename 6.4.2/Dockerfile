@@ -81,6 +81,8 @@ ENV LIB_MYFOO_COMMONJ_URL https://github.com/SpagoBILabs/SpagoBI/blob/mvn-repo/r
 
 ENV LIB_POSTGRESQL_CONNECTOR_URL https://jdbc.postgresql.org/download/postgresql-42.2.4.jar
 
+ENV LIB_CASSANDRA_CONNECTOR_URL https://github.com/adejanovski/cassandra-jdbc-wrapper/releases/download/3.1.0/cassandra-jdbc-wrapper-3.1.0.jar
+
 #knowage directory
 ENV KNOWAGE_DIRECTORY /home/knowage
 #mysql script directory
@@ -185,6 +187,7 @@ RUN wget "${LIB_MYFOO_COMMONJ_URL}"
 
 #dowload DBs libraries and put them into apache tomcat lib
 RUN wget "${LIB_POSTGRESQL_CONNECTOR_URL}"
+RUN wget "${LIB_CASSANDRA_CONNECTOR_URL}"
 
 #create setenv.sh file
 #increase Java Heap memory to 4GB - JAVA_OPTS
